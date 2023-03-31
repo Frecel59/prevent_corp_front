@@ -1,0 +1,6 @@
+requests
+pydeck
+pandas
+streamlit
+Pillow
+plotly
