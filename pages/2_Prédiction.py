@@ -156,8 +156,8 @@ st.write(f"<h3 style='text-align: center; font-size: 25px;'>Statistiques des 10 
 # Liste des noms des plots
 plot_names = ['Nbr accidents', 'Répartition jour / nuit', 'Agglo / hors agglo', \
     "Répartition par type d'individu", 'Répartition de la gravité', \
-    'Répartition par genre', 'Localisation par type de véhicule', 'Répartition \
-    par type de route et condition météo']
+    'Répartition par genre', 'Localisation par type de véhicule', \
+    'Répartition par type de route et condition météo']
 
 # Menu déroulant pour sélectionner le plot
 selected_plot = st.selectbox('Sélectionnez un graph à afficher', plot_names)

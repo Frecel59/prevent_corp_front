@@ -110,6 +110,7 @@ def plot_acc_type_veh_dep(df_merged2, input_dep):
 def plot_acc_route_meteo_dep(df_merged3, input_dep):
     df_merged3_dep = df_merged3[df_merged3['dep'] == input_dep]
 
+    plt.figure(figsize=(7,5))
     sns.countplot(x='type_route', data=df_merged3_dep, hue='etat_surface')
     plt.xlabel('Type de route')
     plt.ylabel('Nombre accidents')

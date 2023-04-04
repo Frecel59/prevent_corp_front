@@ -147,7 +147,7 @@ for i, member in enumerate(team_members):
 
 # Remerciements aux enseignants
 st.subheader("Remerciements à nos enseignants")
-st.write("Un grand merci à nos deux Teachers, Marguerite et Aloys, pour leur soutien et leur guidance tout au long du projet.")
+st.write("Un grand merci à nos deux Teachers, Marguerite, Aloys et Jules, pour leur soutien et leur guidance tout au long du projet.")
 
 # Remerciements au gouvernement
 st.subheader("Remerciements au gouvernement")
