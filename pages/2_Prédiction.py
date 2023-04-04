@@ -3,12 +3,13 @@ from PIL import Image
 import pandas as pd
 
 from data_viz_cleaning.caracteristiques import df_clean_car
-from data_analysis_france import plot_acc_an, plot_acc_j_n, plot_acc_agglo, plot_acc_gravite, plot_acc_genre
-from data_analysis_dep import plot_acc_an_dep, plot_acc_j_n_dep, plot_acc_agglo_dep, plot_acc_gravite_dep, plot_acc_genre_dep
+from data_analysis_dep import plot_acc_an_dep, plot_acc_j_n_dep, \
+    plot_acc_agglo_dep, plot_acc_gravite_dep, plot_acc_genre_dep, \
+    plot_acc_type_dep, plot_acc_type_veh_dep, plot_acc_route_meteo_dep
 from data_viz_cleaning.merged import merged_car_lie, merged_car_usag, merged_car_veh
 
 # Définir la couleur de fond de la page
-st.set_page_config(page_title="Prevent-Corp")
+st.set_page_config(page_title="Prevent-Corp", initial_sidebar_state="collapsed")
 
 
 
@@ -26,6 +27,17 @@ def load_df_m_car_usag():
 
 df_merged1 = load_df_m_car_usag()
 
+@st.cache_data
+def load_df_m_car_veh():
+    return merged_car_veh()
+
+df_merged2 = load_df_m_car_veh()
+
+@st.cache_data
+def load_df_m_car_lie():
+    return merged_car_lie()
+
+df_merged3 = load_df_m_car_lie()
 
 # Ajouter le CSS pour changer la couleur de fond
 st.markdown(
@@ -80,19 +92,26 @@ st.markdown(
             border-radius: 5px;
             width: 200px;
             height: 50px;
+            text-decoration: none;
         }}
         .navbar a:hover {{
             color: black;
+            text-decoration: underline;
         }}
         .navbar a.active {{
-            color: white;
+            color: #134f5c;
+            font-weight: bold;
+            text-decoration: none;
         }}
     </style>
     """
 , unsafe_allow_html=True)
 
+
+
 choice = __file__.split('/')[-1].split('.')[0].split('_')[-1]
-link_format = lambda i, name: f'<a class="{"active" if choice==name else ""}" href="{name}" target="_self">{name}</a>'
+link_format = lambda i, name: f'<a class="{"active" if choice==name else ""}" \
+    href="{name}" target="_self">{name}</a>'
 menu_links = "".join([link_format(i, name) for i, name in enumerate(menu)])
 
 st.markdown(f'<div class="navbar">{menu_links}</div>', unsafe_allow_html=True)
@@ -101,17 +120,23 @@ st.markdown(f'<div class="navbar">{menu_links}</div>', unsafe_allow_html=True)
 
 
 st.title("Prédiction d'un département !")
-st.write("Pour ce projet, nous ne disposions pas de suffissament de données pour proposer des prédictions sur les départements hors france métropolitaine")
+st.write("Pour ce projet, nous ne disposions pas de suffissament de données \
+    pour proposer des prédictions sur les départements hors france métropolitaine")
 
-input_dep = st.number_input("Entrez le numéro du département (1 à 95) :", value=75)
+input_dep = st.number_input("Entrez le numéro du département (1 à 95) :", \
+    value=75, min_value=1, max_value=95)
 
-st.write(f"<h3 style='text-align: center; font-size: 25px;'>Prédiction du nombre d'accident pour le département | {input_dep} |</h3>", unsafe_allow_html=True)
+st.write(f"<h3 style='text-align: center; font-size: 25px;'>Prédiction du \
+    nombre d'accident pour le département | {input_dep} |</h3>", \
+        unsafe_allow_html=True)
 st.write("En attente...")
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
 
-st.write(f"<h3 style='text-align: center; font-size: 25px;'>Statistiques des 10 dernières années pour le département | {input_dep} |</h3>", unsafe_allow_html=True)
+st.write(f"<h3 style='text-align: center; font-size: 25px;'>Statistiques des 10 \
+    dernières années pour le département | {input_dep} |</h3>", \
+        unsafe_allow_html=True)
 
 # st.pyplot(plot_acc_an_dep(df_car, input_dep))
 # st.markdown("<br>", unsafe_allow_html=True)
@@ -129,7 +154,10 @@ st.write(f"<h3 style='text-align: center; font-size: 25px;'>Statistiques des 10 
 # st.markdown("<br>", unsafe_allow_html=True)
 
 # Liste des noms des plots
-plot_names = ['Nbr accidents', 'Répartition jour / nuit', 'Agglo / hors agglo', 'Répartition de la gravité', 'Répartition par genre']
+plot_names = ['Nbr accidents', 'Répartition jour / nuit', 'Agglo / hors agglo', \
+    "Répartition par type d'individu", 'Répartition de la gravité', \
+    'Répartition par genre', 'Localisation par type de véhicule', 'Répartition \
+    par type de route et condition météo']
 
 # Menu déroulant pour sélectionner le plot
 selected_plot = st.selectbox('Sélectionnez un graph à afficher', plot_names)
@@ -137,29 +165,24 @@ selected_plot = st.selectbox('Sélectionnez un graph à afficher', plot_names)
 # Affichage du plot correspondant à la sélection de l'utilisateur
 if selected_plot == 'Nbr accidents':
     st.pyplot(plot_acc_an_dep(df_car, input_dep))
+
 elif selected_plot == 'Répartition jour / nuit':
     st.pyplot(plot_acc_j_n_dep(df_car, input_dep))
+
 elif selected_plot == 'Agglo / hors agglo':
     st.pyplot(plot_acc_agglo_dep(df_car, input_dep))
+
+elif selected_plot == "Répartition par type d'individu":
+    st.pyplot(plot_acc_type_dep(df_merged1, input_dep))
+
 elif selected_plot == 'Répartition de la gravité':
     st.pyplot(plot_acc_gravite_dep(df_merged1, input_dep))
+
 elif selected_plot == 'Répartition par genre':
     st.pyplot(plot_acc_genre_dep(df_merged1, input_dep))
 
+elif selected_plot == 'Localisation par type de véhicule':
+    st.pyplot(plot_acc_type_veh_dep(df_merged2, input_dep))
 
-# Définition des plots
-
-# plot1 = plot_acc_an_dep(df_car, input_dep)
-# plot2 = plot_acc_j_n_dep(df_car, input_dep)
-# plot3 = plot_acc_agglo_dep(df_car, input_dep)
-# plot4 = plot_acc_gravite_dep(df_merged1, input_dep)
-
-# # Affichage des plots
-
-# col1, col2 = st.columns(2)
-# col1.pyplot(plot_acc_an_dep(df_car, input_dep))
-# col2.pyplot(plot_acc_j_n_dep(df_car, input_dep))
-
-# col3, col4 = st.columns(2)
-# col3.pyplot(plot3)
-# col4.pyplot(plot4)
+elif selected_plot == 'Répartition par type de route et condition météo':
+    st.pyplot(plot_acc_route_meteo_dep(df_merged3, input_dep))

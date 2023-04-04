@@ -8,23 +8,10 @@ from data_analysis_dep import plot_acc_an_dep, plot_acc_j_n_dep, plot_acc_agglo_
 from data_viz_cleaning.merged import merged_car_lie, merged_car_usag, merged_car_veh
 
 # Définir la couleur de fond de la page
-st.set_page_config(page_title="Prevent-Corp")
+st.set_page_config(page_title="Prevent-Corp", initial_sidebar_state="collapsed")
 
 
 
-@st.cache_data
-def load_df_car():
-    # return df_clean_car()
-    return pd.read_pickle("data/clean_data/clean_car.gz")
-
-df_car = load_df_car()
-
-
-@st.cache_data
-def load_df_m_car_usag():
-    return merged_car_usag()
-
-df_merged1 = load_df_m_car_usag()
 
 
 # Ajouter le CSS pour changer la couleur de fond
@@ -80,16 +67,22 @@ st.markdown(
             border-radius: 5px;
             width: 200px;
             height: 50px;
+            text-decoration: none;
         }}
         .navbar a:hover {{
             color: black;
+            text-decoration: underline;
         }}
         .navbar a.active {{
-            color: white;
+            color: #134f5c;
+            font-weight: bold;
+            text-decoration: none;
         }}
     </style>
     """
 , unsafe_allow_html=True)
+
+
 
 choice = __file__.split('/')[-1].split('.')[0].split('_')[-1]
 link_format = lambda i, name: f'<a class="{"active" if choice==name else ""}" href="{name}" target="_self">{name}</a>'

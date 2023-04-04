@@ -37,12 +37,24 @@ def plot_acc_agglo(df_car):
 
     return plt
 
+def plot_acc_type(df_merged1):
+    # créer une liste de couleurs personnalisée
+    couleurs = ['#F9A729', '#56B4E9', '#009E73']
+
+    # tracer le graphique avec la nouvelle palette de couleurs
+    plt.figure(figsize=(8, 6))
+    sns.countplot(data=df_merged1, x='catégorie', palette=couleurs)
+    plt.ylabel("Nombre d'accidentés")
+    plt.title("Répartition des accidents par type d'individu")
+
+    return plt
+
 def plot_acc_gravite(df_merged1):
     plt.figure(figsize=(7,6))
     sns.scatterplot(x='long', y='lat', data=df_merged1, hue='gravité', palette='husl')
     plt.xlabel('Longitude')
     plt.ylabel('Latitude')
-    plt.title('Location des accidents classés par gravité')
+    plt.title('Localisation des accidents par gravité')
 
     return plt
 
@@ -54,5 +66,27 @@ def plot_acc_genre(df_merged1):
     plt.pie(gender_count, labels=labels, colors=colors, autopct='%1.1f%%')
     plt.title('Accidents par genre')
     plt.axis('equal')
+
+    return plt
+
+def plot_acc_type_veh(df_merged2):
+    df_merged2 = df_merged2.drop(df_merged2[df_merged2['long'] > 10].index)
+
+    plt.figure(figsize=(7,6))
+    sns.scatterplot(x='long', y='lat', data=df_merged2, hue='type_vehicule', palette='husl')
+    plt.xlabel('Longitude')
+    plt.ylabel('Latitude')
+    plt.title('Localisation par type de véhicule')
+    sns.set_style("whitegrid")
+
+    return plt
+
+def plot_acc_route_meteo(df_merged3):
+    sns.countplot(x='type_route', data=df_merged3, hue='etat_surface')
+    plt.xlabel('Type de route')
+    plt.ylabel('Nombre accidents')
+    plt.title('Répartition par type de route et condition météo')
+    plt.legend(title='Condition météo')
+    sns.set_style("ticks")
 
     return plt
