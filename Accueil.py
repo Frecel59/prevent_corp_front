@@ -101,3 +101,9 @@ st.write("- Analyse des données d'accidents")
 st.write("- Prédictions basées sur l'intelligence artificielle")
 st.write("- Suggestions pour améliorer la sécurité")
 st.write("- Assistance par une équipe d'experts")
+
+
+
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.write("© Prévent' Corp 2022 - Tous droits réservés")

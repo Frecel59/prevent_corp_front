@@ -186,3 +186,8 @@ elif selected_plot == 'Localisation par type de véhicule':
 
 elif selected_plot == 'Répartition par type de route et condition météo':
     st.pyplot(plot_acc_route_meteo_dep(df_merged3, input_dep))
+
+
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.write("© Prévent' Corp 2022 - Tous droits réservés")

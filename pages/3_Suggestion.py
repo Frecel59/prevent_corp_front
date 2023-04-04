@@ -112,3 +112,8 @@ st.write("Les compagnies d’assurance peuvent utiliser le nombre prévu d’acc
 
 st.write("**Planification du trafic :** ")
 st.write("Le modèle de prévision peut aider les décideurs à planifier les embouteillages et les fermetures de routes dans les États où l’on s’attend à ce qu’il y ait plus d’accidents. Ces informations peuvent être utilisées pour développer des itinéraires alternatifs et des déviations afin de minimiser l’impact sur la circulation.")
+
+
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.write("© Prévent' Corp 2022 - Tous droits réservés")

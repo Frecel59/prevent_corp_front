@@ -209,3 +209,8 @@ elif selected_plot == 'Répartition par type de route et condition météo':
         humides ou gelées sont impliquées dans un peu moins d'un quart \
         des accidents.")
     st.pyplot(plot_acc_route_meteo(df_merged3))
+
+
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.write("© Prévent' Corp 2022 - Tous droits réservés")

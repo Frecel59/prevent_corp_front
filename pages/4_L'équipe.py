@@ -152,3 +152,8 @@ st.write("Un grand merci à nos deux Teachers, Marguerite, Aloys et Jules, pour 
 # Remerciements au gouvernement
 st.subheader("Remerciements au gouvernement")
 st.write("Nous tenons également à remercier le gouvernement pour nous avoir permis d'utiliser les données des accidents de la route en France. Leur collaboration a été essentielle pour le développement de notre projet.")
+
+
+st.markdown("<br>", unsafe_allow_html=True)
+st.markdown("<br>", unsafe_allow_html=True)
+st.write("© Prévent' Corp 2022 - Tous droits réservés")
