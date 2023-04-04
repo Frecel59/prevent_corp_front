@@ -10,7 +10,7 @@ install_requirements:
 # ----------------------------------
 
 streamlit:
-	-@streamlit run main.py
+	-@streamlit run Accueil.py
 
 
 # ----------------------------------
