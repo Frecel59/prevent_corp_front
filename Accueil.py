@@ -102,8 +102,10 @@ st.write("- Prédictions basées sur l'intelligence artificielle")
 st.write("- Suggestions pour améliorer la sécurité")
 st.write("- Assistance par une équipe d'experts")
 
-
-
 st.markdown("<br>", unsafe_allow_html=True)
+video_url = 'https://youtu.be/du71zMEJKSA'
+st.video(video_url)
+
+
 st.markdown("<br>", unsafe_allow_html=True)
 st.write("© Prévent' Corp 2022 - Tous droits réservés")
