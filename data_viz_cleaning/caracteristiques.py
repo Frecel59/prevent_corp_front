@@ -100,3 +100,10 @@ def df_clean_car():
     df_car.drop(['an', 'mois'], axis=1, inplace=True)
 
     return df_car
+
+if __name__ == '__main__':
+    df = df_clean_car()
+    # df.to_pickle("data/clean_data/clean_car.pickle")
+    # df.to_pickle("data/clean_data/clean_car.tar")
+    df.to_pickle("data/clean_data/clean_car.gz")
+    # df.to_csv("data/clean_data/clean_car.csv")

@@ -1,5 +1,6 @@
 import streamlit as st
 from PIL import Image
+import pandas as pd
 
 from data_viz_cleaning.caracteristiques import df_clean_car
 from data_analysis_france import plot_acc_an, plot_acc_j_n, plot_acc_agglo, plot_acc_gravite, plot_acc_genre
@@ -13,7 +14,8 @@ st.set_page_config(page_title="Prevent-Corp")
 
 @st.cache_data
 def load_df_car():
-    return df_clean_car()
+    # return df_clean_car()
+    return pd.read_pickle("data/clean_data/clean_car.gz")
 
 df_car = load_df_car()
 

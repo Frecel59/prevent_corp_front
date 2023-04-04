@@ -73,3 +73,11 @@ def df_clean_veh():
         'manv', 'num_veh', 'id_vehicule', 'motor'], inplace=True)
 
     return df_veh
+
+
+if __name__ == '__main__':
+    df = df_clean_veh()
+    # df.to_pickle("data/clean_data/clean_car.pickle")
+    # df.to_pickle("data/clean_data/clean_car.tar")
+    df.to_pickle("data/clean_data/clean_veh.gz")
+    # df.to_csv("data/clean_data/clean_car.csv")
