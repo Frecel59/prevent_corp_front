@@ -1,6 +1,8 @@
 requests
-pydeck
+# pydeck
 pandas
 streamlit
 Pillow
 plotly
+matplotlib
+seaborn
