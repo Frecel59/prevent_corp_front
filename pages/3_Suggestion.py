@@ -95,5 +95,20 @@ st.markdown(f'<div class="navbar">{menu_links}</div>', unsafe_allow_html=True)
 
 
 
-st.title("Suggestion de prevent corp")
+st.title("Suggestion de Prevent Corp")
 # Ajouter le contenu de la page 3 ici
+st.header("Exemples d'utilisation")
+st.write("**Affectation des ressources :** ")
+st.write("Sur la base du nombre d’accidents prévu, les décideurs peuvent allouer des ressources telles que les services d’urgence, les forces de l’ordre et le personnel d’entretien aux États qui devraient connaître des taux d’accidents plus élevés.")
+
+st.write("**Amélioration des infrastructures :** ")
+st.write("Le modèle de prévision peut identifier les États susceptibles d’avoir plus d’accidents et les zones de ces États où les accidents sont les plus susceptibles de se produire. Ces informations peuvent être utilisées par les décideurs pour donner la priorité à l’amélioration des infrastructures telles que la réparation des routes, les feux de signalisation et les passages pour piétons dans ces zones.")
+
+st.write("**Campagnes de sensibilisation du public :** ")
+st.write("Les décideurs peuvent utiliser le nombre prévu d’accidents pour cibler les campagnes de sensibilisation du public dans les États où les taux d’accidents devraient être les plus élevés. Ces campagnes peuvent porter sur des questions telles que la conduite en état d’ivresse, la distraction au volant et le port de la ceinture de sécurité.")
+
+st.write("**Taux d’assurance :** ")
+st.write("Les compagnies d’assurance peuvent utiliser le nombre prévu d’accidents pour ajuster leurs tarifs en fonction des différents États. Si l’on s’attend à ce qu’un État ait un taux d’accidents plus élevé, les primes d’assurance pour les conducteurs de cet État peuvent être plus élevées que celles des autres États.")
+
+st.write("**Planification du trafic :** ")
+st.write("Le modèle de prévision peut aider les décideurs à planifier les embouteillages et les fermetures de routes dans les États où l’on s’attend à ce qu’il y ait plus d’accidents. Ces informations peuvent être utilisées pour développer des itinéraires alternatifs et des déviations afin de minimiser l’impact sur la circulation.")
