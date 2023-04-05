@@ -1,13 +1,13 @@
 import matplotlib.pyplot as plt
 import seaborn as sns
 
+
 from data_viz_cleaning.merged import merged_car_lie
 from data_viz_cleaning.merged import merged_car_usag
 from data_viz_cleaning.merged import merged_car_veh
 from data_viz_cleaning.caracteristiques import df_clean_car
 
 def plot_acc_an_dep(df_car, input_dep):
-
     # Créer une nouvelle colonne pour l'année
     df_car['year'] = df_car['date'].dt.year
 

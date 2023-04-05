@@ -123,8 +123,11 @@ st.title("Prédiction d'un département !")
 st.write("Pour ce projet, nous ne disposions pas de suffissament de données \
     pour proposer des prédictions sur les départements hors france métropolitaine")
 
-input_dep = st.number_input("Entrez le numéro du département (1 à 95) :", \
+input_dep = st.number_input("Entrez le numéro du département (1 à 95, hors 20) :", \
     value=75, min_value=1, max_value=95)
+
+if input_dep == 20:
+    st.warning("Le département 20 n'est pas disponible pour le moment.")
 
 st.write(f"<h3 style='text-align: center; font-size: 25px;'>Prédiction du \
     nombre d'accident pour le département | {input_dep} |</h3>", \
