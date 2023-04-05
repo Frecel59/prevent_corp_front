@@ -1,12 +1,16 @@
 import streamlit as st
 from PIL import Image
 import pandas as pd
+import requests
+import matplotlib.pyplot as plt
+import seaborn as sns
 
 from data_viz_cleaning.caracteristiques import df_clean_car
 from data_analysis_dep import plot_acc_an_dep, plot_acc_j_n_dep, \
     plot_acc_agglo_dep, plot_acc_gravite_dep, plot_acc_genre_dep, \
     plot_acc_type_dep, plot_acc_type_veh_dep, plot_acc_route_meteo_dep
 from data_viz_cleaning.merged import merged_car_lie, merged_car_usag, merged_car_veh
+
 
 # Définir la couleur de fond de la page
 st.set_page_config(page_title="Prevent-Corp", initial_sidebar_state="collapsed")
@@ -129,10 +133,44 @@ input_dep = st.number_input("Entrez le numéro du département (1 à 95, hors 20
 if input_dep == 20:
     st.warning("Le département 20 n'est pas disponible pour le moment.")
 
+
 st.write(f"<h3 style='text-align: center; font-size: 25px;'>Prédiction du \
     nombre d'accident pour le département | {input_dep} |</h3>", \
         unsafe_allow_html=True)
-st.write("En attente...")
+
+
+# if st.button('Lancer Prédiction'):
+params = {'dep': int(input_dep)}
+answer = requests.get(url='https://back-on5xr7f44q-ew.a.run.app/predict', params=params)
+result = answer.json()
+result_df = pd.DataFrame(result.values(), index=result.keys())
+result_df = result_df.reset_index()
+result_df = result_df.rename(columns={0: "Nbr_Accidents"})
+result_df["Mois"] = ["01", "02", "03", "04", "05", "06", "07", "08", "09", "10", "11", "12"]
+result_df = result_df.drop("index", axis=1)
+result_df = result_df.rename(columns={"Nbr_Accidents": "Nombre d'accidents"})
+result_df['Nombre d\'accidents'] = result_df['Nombre d\'accidents'].astype(int)
+
+sns.set_style('darkgrid')
+sns.set_palette('Set2')
+plt.figure(figsize=(6,4))
+ax = sns.barplot(x='Mois', y='Nombre d\'accidents', data=result_df)
+plt.title(f"Nombre d'accidents par mois pour l'année 2022")
+plt.xlabel('Mois')
+plt.ylabel("Nombre d'accidents")
+
+# Ajouter les annotations pour afficher le nombre total d'accidents pour chaque mois
+for i, v in enumerate(result_df['Nombre d\'accidents']):
+    ax.annotate(str(v), xy=(i, v), ha='center', va='bottom', fontsize=6)
+
+fig = plt.gcf()  # Récupérer la figure courante
+st.pyplot(fig)   # Afficher la figure avec st.pyplot()
+
+# st.write(result_df)
+
+
+# else:
+#     st.write("En attente...")
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
