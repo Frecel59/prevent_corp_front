@@ -135,7 +135,7 @@ if input_dep == 20:
 
 
 st.write(f"<h3 style='text-align: center; font-size: 25px;'>Prédiction du \
-    nombre d'accident pour le département | {input_dep} |</h3>", \
+    nombre d'accidents pour le département | {input_dep} |</h3>", \
         unsafe_allow_html=True)
 
 
@@ -152,10 +152,10 @@ result_df = result_df.rename(columns={"Nbr_Accidents": "Nombre d'accidents"})
 result_df['Nombre d\'accidents'] = result_df['Nombre d\'accidents'].astype(int)
 
 sns.set_style('darkgrid')
-sns.set_palette('Set2')
+sns.set_palette('Set3')
 plt.figure(figsize=(6,4))
 ax = sns.barplot(x='Mois', y='Nombre d\'accidents', data=result_df)
-plt.title(f"Nombre d'accidents par mois pour l'année 2022")
+plt.title(f"Prédiction du nombre d'accidents pour le département {input_dep}")
 plt.xlabel('Mois')
 plt.ylabel("Nombre d'accidents")
 

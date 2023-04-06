@@ -16,7 +16,7 @@ def plot_acc_an_dep(df_car, input_dep):
 
     # Tracer le graphique
     sns.set_style('darkgrid')
-    sns.set_palette('Set2')
+    sns.set_palette('Set3')
     plt.figure(figsize=(6,4))
     sns.countplot(x='year', data=df_car_dep)
     plt.title(f"Nombre d'accidents par an pour le département {input_dep}")

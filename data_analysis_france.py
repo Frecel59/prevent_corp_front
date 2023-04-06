@@ -9,7 +9,7 @@ from data_viz_cleaning.caracteristiques import df_clean_car
 def plot_acc_an(df_car):
     # df_car = df_clean_car()
     sns.set_style('darkgrid')
-    sns.set_palette('Set2')
+    sns.set_palette('Set3')
     plt.figure(figsize=(8,6))
     sns.countplot(x=df_car['date'].dt.year)
     plt.title("Nombre d'accidents par an")
