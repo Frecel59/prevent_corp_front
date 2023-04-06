@@ -156,4 +156,4 @@ st.write("Nous tenons également à remercier le gouvernement pour nous avoir pe
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
-st.write("© Prévent' Corp 2022 - Tous droits réservés")
+st.write("© Prévent' Corp 2023 - Tous droits réservés")

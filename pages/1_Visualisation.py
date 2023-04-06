@@ -149,6 +149,7 @@ selected_plot = st.selectbox('Sélectionnez un graph à afficher', plot_names)
 
 # Affichage du plot correspondant à la sélection de l'utilisateur
 if selected_plot == 'Nbr accidents':
+    st.pyplot(plot_acc_an(df_car))
     st.write("La répartition du nombre d'accidents en France sur les 10 \
     dernières années montre une diminution progressive depuis 2011, avec une \
     légère remontée en 2017 et 2018, avant de baisser à nouveau en 2019 et 2020.\
@@ -156,61 +157,68 @@ if selected_plot == 'Nbr accidents':
     route en raison de la pandémie de Covid-19 et des mesures de confinement \
     mises en place, mettant en lumière l'impact des déplacements routiers sur \
     le nombre d'accidents.")
-    st.pyplot(plot_acc_an(df_car))
+
 
 elif selected_plot == 'Répartition jour / nuit':
+    st.pyplot(plot_acc_j_n(df_car))
     st.write("Répartition des accidents selon le moment de la journée, avec une \
     différence significative entre les accidents survenant en journée (75 %) et\
     ceux survenant la nuit (25 %)")
-    st.pyplot(plot_acc_j_n(df_car))
+
 
 elif selected_plot == 'Agglo / hors agglo':
+    st.pyplot(plot_acc_agglo(df_car))
     st.write("Cette représentation met en évidence que les accidents survenus \
         en France ont majoritairement lieu en zone urbaine, tandis que les \
         conditions météorologiques normales sont les plus fréquentes. Ces \
         informations peuvent aider à cibler les efforts de prévention des \
         accidents de la route.")
-    st.pyplot(plot_acc_agglo(df_car))
+
 
 elif selected_plot == "Répartition par type d'individu":
+    st.pyplot(plot_acc_type(df_merged1))
     st.write("La répartition des accidents en France par type d'individu montre \
     que les conducteurs sont les plus touchés, avec plus de 74 % des accidents \
     recensés. Les passagers représentent environ 17 % des accidents, tandis \
     que les piétons sont impliqués dans environ 8 % des accidents. Cette \
     répartition souligne l'importance de la sensibilisation à la \
     sécurité routière pour tous les usagers de la route.")
-    st.pyplot(plot_acc_type(df_merged1))
+
 
 elif selected_plot == 'Répartition de la gravité':
+    st.pyplot(plot_acc_gravite(df_merged1))
     st.write("En France, la majorité des accidents ont entraîné des blessures \
         avec hospitalisation (55,64 %), soulignant l'importance de la sécurité \
         routière et de la prévention des accidents pour réduire le nombre \
         de blessés sur les routes.")
-    st.pyplot(plot_acc_gravite(df_merged1))
+
 
 elif selected_plot == 'Répartition par genre':
+    st.pyplot(plot_acc_genre(df_merged1))
     st.write("La répartition des accidents en France selon le genre révèle que \
         les hommes sont impliqués dans près de 70 % des accidents, contre 32 % \
         pour les femmes.")
-    st.pyplot(plot_acc_genre(df_merged1))
+
 
 elif selected_plot == 'Localisation par type de véhicule':
+    st.pyplot(plot_acc_type_veh(df_merged2))
     st.write("Répartition des accidents en France en fonction du type de \
         véhicule impliqué. On constate que les véhicules légers sont les plus \
         fréquemment impliqués dans des accidents (67 %), suivis des deux-roues \
         (28 %) et des poids lourds et transports en commun (4 %).")
-    st.pyplot(plot_acc_type_veh(df_merged2))
+
 
 elif selected_plot == 'Répartition par type de route et condition météo':
+    st.pyplot(plot_acc_route_meteo(df_merged3))
     st.write("On peut observer que les accidents ont lieu majoritairement sur \
         les voies et les routes, avec une proportion plus importante sur les \
         voies. Par ailleurs, on constate que la grande majorité des accidents \
         surviennent par temps sec, tandis que les conditions météorologiques\
         humides ou gelées sont impliquées dans un peu moins d'un quart \
         des accidents.")
-    st.pyplot(plot_acc_route_meteo(df_merged3))
+
 
 
 st.markdown("<br>", unsafe_allow_html=True)
 st.markdown("<br>", unsafe_allow_html=True)
-st.write("© Prévent' Corp 2022 - Tous droits réservés")
+st.write("© Prévent' Corp 2023 - Tous droits réservés")
