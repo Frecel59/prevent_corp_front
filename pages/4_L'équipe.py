@@ -118,7 +118,7 @@ team_members = [
         "linkedin": "https://www.linkedin.com/in/arnaud-pelet/",
     },
     {
-        "name": "Tituan De Radigues",
+        "name": "Titouan De Radigues",
         "dep" : "Wallonie",
         "photo": "https://media.licdn.com/dms/image/D4E03AQEXXcE_r1DtTw/profile-displayphoto-shrink_800_800/0/1680267112765?e=1685577600&v=beta&t=T7-Bdd36_GFBlgA-ejaXN2p_3NBdheqEEWm0rud9lFA",
         "linkedin": "https://www.linkedin.com/in/titouan-de-radigues-32b432240/",
