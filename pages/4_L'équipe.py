@@ -102,7 +102,7 @@ team_members = [
     {
         "name": "Cédric Lecerf",
         "dep" : "Nord",
-        "photo": "https://media.licdn.com/dms/image/D4E03AQE6kOrDApGAVA/profile-displayphoto-shrink_200_200/0/1679247325960?e=1685577600&v=beta&t=cVJVZepnGvN27w_hvgCLR96PggBq7vuB5xqkErYUL8A",
+        "photo": "https://media.licdn.com/dms/image/D4E03AQFufln_I9ASHw/profile-displayphoto-shrink_200_200/0/1680870665991?e=1686182400&v=beta&t=SsXJt0RG_RfxtLWIWo1TbetMTewz3Z72W9YlSEgB9TU",
         "linkedin": "https://www.linkedin.com/in/cedriclecerf59/",
     },
     {
